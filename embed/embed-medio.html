@@ -70,6 +70,21 @@ window._tgvLeaflet.then(function(){
     var j=0;while(cum[j]<k)j++;
     L.circleMarker(ll[j],{radius:5,color:'#fff',weight:1.5,fillColor:'#2a2320',fillOpacity:1}).addTo(map).bindTooltip('km '+k,{direction:'top'});
   }
+  function addArrows(stepKm){
+    var cum=0,next=stepKm;
+    for(var ai=1;ai<ll.length;ai++){
+      var pa=ll[ai-1],pb=ll[ai];
+      var ala1=pa[0]*rad,ala2=pb[0]*rad,adla=ala2-ala1,adlo=(pb[1]-pa[1])*rad;
+      var ah=Math.sin(adla/2)*Math.sin(adla/2)+Math.cos(ala1)*Math.cos(ala2)*Math.sin(adlo/2)*Math.sin(adlo/2);
+      cum+=2*R*Math.asin(Math.sqrt(ah));
+      if(cum>=next){next+=stepKm;
+        var brg=Math.atan2(Math.sin(adlo)*Math.cos(ala2),Math.cos(ala1)*Math.sin(ala2)-Math.sin(ala1)*Math.cos(ala2)*Math.cos(adlo))/rad;
+        L.marker(pb,{interactive:false,keyboard:false,icon:L.divIcon({className:'',iconSize:[16,16],iconAnchor:[8,8],
+          html:'<svg width="16" height="16" viewBox="-8 -8 16 16" style="transform:rotate('+(brg-90)+'deg)"><path d="M-4,-5 L5,0 L-4,5 L-1.5,0 Z" fill="'+COL+'" stroke="#fff" stroke-width="1.5"/></svg>'})}).addTo(map);
+      }
+    }
+  }
+  addArrows(15);
   map.fitBounds(line.getBounds(),{padding:[24,24]});
   var cur=L.circleMarker(ll[0],{radius:7,color:'#fff',weight:2.5,fillColor:'#1971c2',fillOpacity:1,interactive:false});
   var cv=root.querySelector('.tgv-prof'),tip=root.querySelector('.tgv-tip'),ctx=cv.getContext('2d');

@@ -67,12 +67,25 @@ L.polyline(ll,{color:'#fff',weight:8,opacity:.9}).addTo(map);
 const line=L.polyline(ll,{color:COL,weight:4.5,opacity:1}).addTo(map);
 L.circleMarker(ll[0],{radius:8,color:'#fff',weight:2,fillColor:'#2f9e44',fillOpacity:1}).addTo(map).bindPopup('Partenza · Rovereto');
 L.circleMarker(ll[ll.length-1],{radius:8,color:'#fff',weight:2,fillColor:'#e03131',fillOpacity:1}).addTo(map).bindPopup('Arrivo · Rovereto');
+function addArrows(map,ll,color,stepKm){
+var R=6371,rad=Math.PI/180,cum=0,next=stepKm;
+for(var i=1;i<ll.length;i++){
+var a=ll[i-1],b=ll[i];
+var la1=a[0]*rad,la2=b[0]*rad,dla=la2-la1,dlo=(b[1]-a[1])*rad;
+var h=Math.sin(dla/2)*Math.sin(dla/2)+Math.cos(la1)*Math.cos(la2)*Math.sin(dlo/2)*Math.sin(dlo/2);
+cum+=2*R*Math.asin(Math.sqrt(h));
+if(cum>=next){next+=stepKm;
+var brg=Math.atan2(Math.sin(dlo)*Math.cos(la2),Math.cos(la1)*Math.sin(la2)-Math.sin(la1)*Math.cos(la2)*Math.cos(dlo))/rad;
+L.marker(b,{interactive:false,keyboard:false,icon:L.divIcon({className:'',iconSize:[16,16],iconAnchor:[8,8],
+html:'<svg width="16" height="16" viewBox="-8 -8 16 16" style="transform:rotate('+(brg-90)+'deg)"><path d="M-4,-5 L5,0 L-4,5 L-1.5,0 Z" fill="'+color+'" stroke="#fff" stroke-width="1.5"/></svg>'})}).addTo(map);
+}}}
 // pallini ogni 50 km
 for(let k=50;k<TOT;k+=50){
   let i=cum.findIndex(d=>d>=k);
   L.circleMarker(ll[i],{radius:5,color:'#fff',weight:1.5,fillColor:'#2a2320',fillOpacity:1})
     .addTo(map).bindTooltip('km '+k,{direction:'top'});
 }
+addArrows(map,ll,COL,10);
 map.fitBounds(line.getBounds(),{padding:[26,26]});
 // cursore condiviso
 const cur=L.circleMarker(ll[0],{radius:7,color:'#fff',weight:2.5,fillColor:'#1971c2',fillOpacity:1,interactive:false});
