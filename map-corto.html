@@ -16,7 +16,7 @@ html,body{margin:0;height:100%}
 .leaflet-container{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
 </style></head><body>
 <div id="map"></div>
-<div class="chip"><div class="t"><span class="d" style="background:#2f9e44"></span>Percorso Corto</div>
+<div class="chip"><div class="t"><span class="d" style="background:#5ea345"></span>Percorso Corto</div>
 <div class="s">216 km · 3.000 m D+ · Accessibile</div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -40,9 +40,9 @@ const map=L.map('map',{layers:[cyclo]});
 L.control.layers({"Off-road / Ciclabile":cyclo,"Topografica (curve di livello)":topo,"Satellite":sat},null,{collapsed:true}).addTo(map);
 const ll=T.coords.map(c=>[c[1],c[0]]);
 L.polyline(ll,{color:'#fff',weight:8,opacity:.9}).addTo(map);
-L.polyline(ll,{color:'#2f9e44',weight:4.5,opacity:1}).addTo(map);
-L.circleMarker([T.start[1],T.start[0]],{radius:8,color:'#fff',weight:2,fillColor:'#2f9e44',fillOpacity:1}).addTo(map).bindPopup('Partenza');
+L.polyline(ll,{color:'#5ea345',weight:4.5,opacity:1}).addTo(map);
+L.circleMarker([T.start[1],T.start[0]],{radius:8,color:'#fff',weight:2,fillColor:'#5ea345',fillOpacity:1}).addTo(map).bindPopup('Partenza');
 L.circleMarker([T.end[1],T.end[0]],{radius:8,color:'#fff',weight:2,fillColor:'#e03131',fillOpacity:1}).addTo(map).bindPopup('Arrivo');
-addArrows(map,ll,'#2f9e44',10);
+addArrows(map,ll,'#5ea345',10);
 map.fitBounds(L.polyline(ll).getBounds(),{padding:[30,30]});
 </script></body></html>

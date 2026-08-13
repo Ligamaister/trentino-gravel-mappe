@@ -87,13 +87,13 @@ footer b{color:#fff}
   </div>
 
   <div class="summary">
-    <div class="scard"><div class="nm"><span class="dot" style="background:#2f9e44"></span>Percorso Corto</div>
+    <div class="scard"><div class="nm"><span class="dot" style="background:#5ea345"></span>Percorso Corto</div>
       <div class="big">216 km</div><div class="small">3.000 m D+ · Accessibile</div>
       <div class="lvl">Livello 1 / 3</div></div>
-<div class="scard"><div class="nm"><span class="dot" style="background:#e8590c"></span>Percorso Medio</div>
+<div class="scard"><div class="nm"><span class="dot" style="background:#3d7a2e"></span>Percorso Medio</div>
       <div class="big">360 km</div><div class="small">7.400 m D+ · Intermedio</div>
       <div class="lvl">Livello 2 / 3</div></div>
-<div class="scard"><div class="nm"><span class="dot" style="background:#c1121f"></span>Percorso Lungo</div>
+<div class="scard"><div class="nm"><span class="dot" style="background:#1f4d1a"></span>Percorso Lungo</div>
       <div class="big">374 km</div><div class="small">7.900 m D+ · Impegnativo</div>
       <div class="lvl">Livello 3 / 3</div></div>
 
@@ -121,7 +121,7 @@ footer b{color:#fff}
   <div class="routes">
     <div class="route">
       <div class="head">
-        <h3><span class="dot" style="background:#2f9e44"></span>Percorso Corto</h3>
+        <h3><span class="dot" style="background:#5ea345"></span>Percorso Corto</h3>
         <div class="badges">
           <span class="badge"><b>216 km</b></span>
           <span class="badge">Dislivello <b>3.000 m D+</b></span>
@@ -131,15 +131,15 @@ footer b{color:#fff}
       <div class="desc">Il tracciato più accessibile della serie, pensato per avvicinare al gravel il maggior numero di partecipanti. Un anello che valorizza il fondovalle e le prime salite panoramiche, con partenza e arrivo a Rovereto.</div>
       <div id="map-corto" class="map"></div>
       <div class="tip">
-        <span class="lg"><span class="sq" style="background:#2f9e44"></span> Tracciato</span>
-        <span class="lg"><span class="pt" style="background:#2f9e44"></span> Partenza</span>
+        <span class="lg"><span class="sq" style="background:#5ea345"></span> Tracciato</span>
+        <span class="lg"><span class="pt" style="background:#5ea345"></span> Partenza</span>
         <span class="lg"><span class="pt" style="background:#e03131"></span> Arrivo</span>
         <span>Tracciato provvisorio.</span>
       </div>
     </div>
 <div class="route">
       <div class="head">
-        <h3><span class="dot" style="background:#e8590c"></span>Percorso Medio</h3>
+        <h3><span class="dot" style="background:#3d7a2e"></span>Percorso Medio</h3>
         <div class="badges">
           <span class="badge"><b>360 km</b></span>
           <span class="badge">Dislivello <b>7.400 m D+</b></span>
@@ -149,15 +149,15 @@ footer b{color:#fff}
       <div class="desc">La via di mezzo, che allunga verso nuove valli e alza il dislivello: un'avventura completa per chi cerca distanza e paesaggi senza arrivare all'estremo.</div>
       <div id="map-medio" class="map"></div>
       <div class="tip">
-        <span class="lg"><span class="sq" style="background:#e8590c"></span> Tracciato</span>
-        <span class="lg"><span class="pt" style="background:#2f9e44"></span> Partenza</span>
+        <span class="lg"><span class="sq" style="background:#3d7a2e"></span> Tracciato</span>
+        <span class="lg"><span class="pt" style="background:#5ea345"></span> Partenza</span>
         <span class="lg"><span class="pt" style="background:#e03131"></span> Arrivo</span>
         <span>Tracciato provvisorio.</span>
       </div>
     </div>
 <div class="route">
       <div class="head">
-        <h3><span class="dot" style="background:#c1121f"></span>Percorso Lungo</h3>
+        <h3><span class="dot" style="background:#1f4d1a"></span>Percorso Lungo</h3>
         <div class="badges">
           <span class="badge"><b>374 km</b></span>
           <span class="badge">Dislivello <b>7.900 m D+</b></span>
@@ -167,8 +167,8 @@ footer b{color:#fff}
       <div class="desc">La sfida totale, che attraversa il cuore del Trentino collegando più valli. Chilometraggio e dislivello da ultra-distance, per i gravellisti più esperti.</div>
       <div id="map-lungo" class="map"></div>
       <div class="tip">
-        <span class="lg"><span class="sq" style="background:#c1121f"></span> Tracciato</span>
-        <span class="lg"><span class="pt" style="background:#2f9e44"></span> Partenza</span>
+        <span class="lg"><span class="sq" style="background:#1f4d1a"></span> Tracciato</span>
+        <span class="lg"><span class="pt" style="background:#5ea345"></span> Partenza</span>
         <span class="lg"><span class="pt" style="background:#e03131"></span> Arrivo</span>
         <span>Tracciato provvisorio.</span>
       </div>
@@ -227,16 +227,16 @@ function drawTrack(id, key, color){
   L.control.layers(B.layers,null,{collapsed:true}).addTo(map);
   L.polyline(latlngs,{color:'#ffffff',weight:8,opacity:.9}).addTo(map);
   L.polyline(latlngs,{color:color,weight:4.5,opacity:1}).addTo(map);
-  L.circleMarker([t.start[1],t.start[0]],{radius:8,color:'#fff',weight:2,fillColor:'#2f9e44',fillOpacity:1}).addTo(map).bindPopup('Partenza');
+  L.circleMarker([t.start[1],t.start[0]],{radius:8,color:'#fff',weight:2,fillColor:'#5ea345',fillOpacity:1}).addTo(map).bindPopup('Partenza');
   L.circleMarker([t.end[1],t.end[0]],{radius:8,color:'#fff',weight:2,fillColor:'#e03131',fillOpacity:1}).addTo(map).bindPopup('Arrivo');
   addArrows(map, latlngs, color, 12);
   map.fitBounds(L.polyline(latlngs).getBounds(),{padding:[28,28]});
   map.on('click',()=>map.scrollWheelZoom.enable());
   map.on('mouseout',()=>map.scrollWheelZoom.disable());
 }
-drawTrack('map-corto','corto','#2f9e44');
-drawTrack('map-lungo','lungo','#c1121f');
-drawTrack('map-medio','medio','#e8590c');
+drawTrack('map-corto','corto','#5ea345');
+drawTrack('map-lungo','lungo','#1f4d1a');
+drawTrack('map-medio','medio','#3d7a2e');
 </script>
 </body>
 </html>
