@@ -20,6 +20,9 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line
 .voce{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;color:inherit;background:none;border:0;border-bottom:1px solid #ebe5d6;padding:10px 6px;cursor:pointer;border-radius:6px}
 .voce:hover{background:var(--verde-chiaro)}
 .voce[aria-pressed=true]{background:var(--verde);color:#fff}
+#uso{font-size:12.5px;line-height:1.45;color:var(--ink-soft);background:#f4f1ea;border-radius:8px;padding:9px 11px;margin:0 0 14px}
+#uso b{color:#2a2440}
+#uso p{margin:6px 0 0}
 #legenda{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--ink-soft);margin:0 0 14px}
 #legenda span{display:inline-flex;align-items:center;gap:6px}
 #legenda i{display:inline-block;width:22px;height:4px;border-radius:2px}
@@ -68,6 +71,10 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line
   <h1>Le foto, ambito per ambito</h1>
   <p class="sotto" id="intro"></p>
   <div id="legenda" aria-label="Legenda"><span><i style="background:#0b5fd6"></i>Lungo</span><span><i style="background:#b3168c"></i>Medio</span><span><i style="background:#d11a2a"></i>Corto</span><span><i class="conf"></i>Confine fra ambiti</span><span><b class="pal"></b>Foto</span><span><b class="pal gr"></b>Foto appena fuori provincia</span></div>
+  <div id="uso"><b>Come potete usare le foto</b>
+    <p>Potete scaricarle, tenerle nei vostri archivi e usarle nella vostra comunicazione, anche in campagne pubblicitarie, per la promozione turistica del territorio e per raccontare l'evento.</p>
+    <p>Vi chiediamo solo di indicare sempre i crediti del fotografo e di Trentino Gravel.</p>
+  </div>
   <div id="scheda" aria-live="polite"><h2 id="s-nome"></h2><p id="s-testo"></p><a class="btn" id="s-link" target="_blank" rel="noopener" hidden>Apri l'album e scarica le foto</a><div id="griglia"></div><div id="altre"></div></div>
   <div id="elenco"></div>
 </aside>
